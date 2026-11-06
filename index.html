@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#071a1a" />
+  <title>El Guardián de La Loma</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <div class="brand"><div class="brand-mark">✦</div><div><h1>La Loma</h1><p>El Guardián del Cementerio</p></div></div>
+      <div class="day-block"><span id="weatherDot"></span><div><strong id="dayLabel">Día 1</strong><small id="weatherLabel">Brisa del Caribe</small></div></div>
+    </header>
+    <section class="game-layout">
+      <div class="world-card">
+        <div class="canvas-wrap"><canvas id="gameCanvas" aria-label="Mapa del cementerio"></canvas><div class="toast" id="toast"></div></div>
+        <div class="controls-row">
+          <div class="dpad" aria-label="Controles de movimiento"><button data-key="up">▲</button><div><button data-key="left">◀</button><button data-key="down">▼</button><button data-key="right">▶</button></div></div>
+          <div class="action-hint"><span class="keycap">A</span><span>Acercarte a un punto brillante para cuidar</span></div>
+        </div>
+      </div>
+      <aside class="side-panel">
+        <div class="player-card"><div class="avatar">🌿</div><div class="player-meta"><strong>Yara</strong><span>Cuidadora novata</span><div class="xp"><i id="xpBar"></i></div><small><b id="xpText">0 / 100 XP</b></small></div><div class="level"><small>NIV.</small><b id="levelText">1</b></div></div>
+        <div class="stats"><div><span class="stat-icon energy">☀</span><small>ENERGÍA</small><strong id="energyText">5 / 5</strong><div class="meter"><i id="energyBar"></i></div></div><div><span class="stat-icon coins">◈</span><small>PESOS</small><strong id="coinText">24</strong></div><div><span class="stat-icon rep">✦</span><small>RESPETO</small><strong id="respectText">1</strong></div></div>
+        <div class="mission-card"><div class="section-title"><span>ENCARGO DEL DÍA</span><b>+</b></div><h2>Una luz para cada recuerdo</h2><p>Enciende 3 velas para que las ánimas encuentren su camino esta noche.</p><div class="progress-line"><i id="questBar"></i></div><div class="quest-foot"><span id="questText">0 / 3 velas</span><b>+25 XP</b></div></div>
+        <div class="inventory-card"><div class="section-title"><span>MOCHILA</span><button id="openInventory">VER TODO <b>›</b></button></div><div class="item-grid" id="quickItems"></div></div>
+        <div class="tip"><span>☕</span><p><b>Consejo de Abuela Nena</b><br>“El cementerio se cuida con las manos, pero también con el corazón.”</p></div>
+      </aside>
+    </section>
+    <nav class="bottom-nav"><button class="active" data-tab="map"><span>⌂</span>Mapa</button><button data-tab="bag"><span>▣</span>Inventario</button><button data-tab="journal"><span>✧</span>Bitácora</button><button data-tab="help"><span>?</span>Ayuda</button></nav>
+    <div class="modal hidden" id="inventoryModal"><div class="modal-box"><button class="close" id="closeInventory">×</button><p class="eyebrow">MOCHILA DE YARA</p><h2>Herramientas y ofrendas</h2><div class="full-items" id="fullItems"></div><p class="modal-note">Los objetos se encuentran cuidando los rincones de La Loma.</p></div></div>
+    <div class="modal hidden" id="journalModal"><div class="modal-box"><button class="close">×</button><p class="eyebrow">BITÁCORA</p><h2>Historias de La Loma</h2><div class="journal-entry"><span>01</span><div><b>La llegada</b><p>Yara heredó el farol de su abuela. Esta noche será su primera ronda en solitario.</p></div></div><div class="journal-entry locked"><span>02</span><div><b>???</b><p>Completa encargos para descubrir más historias.</p></div></div></div></div>
+    <div class="modal hidden" id="helpModal"><div class="modal-box"><button class="close">×</button><p class="eyebrow">GUÍA DE LA LOMA</p><h2>Cómo jugar</h2><ul class="help-list"><li><b>Muévete</b> con las flechas o desliza en el mapa.</li><li><b>Cuida</b> los puntos brillantes: limpia, riega o enciende una vela.</li><li><b>Administra</b> tu energía. Descansa junto a la casita para recuperar.</li><li><b>Crece</b> con XP, respeta las tradiciones y desbloquea nuevas zonas.</li></ul></div></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
